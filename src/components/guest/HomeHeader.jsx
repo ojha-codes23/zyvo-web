@@ -56,7 +56,11 @@ const HomeHeader = ({ showMap, setShowMap }) => {
 
 
 console.log(userInfo)
-  const localSaved = JSON.parse(localStorage.getItem(KEYS.USER_INFO))||JSON.parse(sessionStorage.getItem(KEYS.USER_INFO)) ;
+const local = localStorage.getItem(KEYS.USER_INFO);
+const session = sessionStorage.getItem(KEYS.USER_INFO);
+
+const localSaved = JSON.parse(local || session || "null");
+  // const localSaved = JSON.parse(localStorage.getItem(KEYS.USER_INFO))||JSON.parse(sessionStorage.getItem(KEYS.USER_INFO)) ;
   const login_id = userInfo?.user_id ? String(userInfo?.user_id) : null||   localSaved?.user_id ? String(localSaved?.user_id) : null;
 
   // const access_token = localSaved?.access_token;

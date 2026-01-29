@@ -21,7 +21,7 @@ function VerificationModal({ show, onHide, veficationByEmailOpen, regiserMail, v
   const { userInfo } = useSelector(({ user }) => user)
   const { getUserProfile } = useProfile();
 
-  const localSaved = JSON.parse(localStorage.getItem(KEYS.USER_INFO)||JSON.parse(sessionStorage.getItem(KEYS.USER_INFO)));
+  const localSaved = JSON.parse(localStorage.getItem(KEYS.USER_INFO))||JSON.parse(sessionStorage.getItem(KEYS.USER_INFO));
   const login_id = userInfo?.user_id ? String(userInfo?.user_id) : null || localSaved?.user_id ? String(localSaved?.user_id) : null;
   //
   const [error, setError] = useState(null);
